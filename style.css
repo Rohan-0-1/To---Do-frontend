@@ -41,16 +41,46 @@ input{
     color: black;
     background-color: #ffcdab;
 }
-#todo-{
-    background-color: red;
-    padding-top: 15px;
-    font-size: 20px;
+#todos > div {
+    margin-top: 15px;
+    padding: 10px; 
+    border-radius: 10px; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+}
+#del, #done{
+    margin-right: 10px;
+    align-self: flex-end; 
+ }
+
+#button-container {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
 }
 #del{
-    padding: 6px;
-    color: red;
-    border-radius: 20px;
+    margin-left: 20px;
+    padding: 6px 12px;
+    background-color: #ff4c4c; 
+    color: white; 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    
 }
-
+#del:hover {
+    background-color: #ff6666; 
+}
+#done{
+    padding: 6px 12px;
+    background-color: #4caf50; 
+    color: white; 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+#done:hover {
+    background-color: #66bb6a; 
+}
