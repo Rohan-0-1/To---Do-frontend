@@ -13,6 +13,7 @@ let todos = [];
           todos.splice(index,1);
         render();
       }
+
       function taskCompleted(todo){
         const index = todos.indexOf(todo);
         const h4 = document.querySelector(`#todo-${index} h4`);
@@ -21,6 +22,7 @@ let todos = [];
           deleteTodo(todo)
         }, 2000);
       }
+
       function createNode(todo){
             const index = todos.indexOf(todo);
 
@@ -30,20 +32,29 @@ let todos = [];
             const h4 = document.createElement("h4");
             const btn = document.createElement("button");
             const btn2= document.createElement("button");
+            
             h4.innerHTML = todo.title;
             btn.innerHTML= "Delete";
+            
             btn.setAttribute("id","del");
             btn2.setAttribute("id","done")
+            
             btn.onclick = () => deleteTodo(todo);
             btn2.innerHTML="Done";
+            
             btn2.onclick = () => taskCompleted(todo);
-            // btn.setAttribute("onclick","deleteTodo(todo)");
-            // btn2.setAttribute("onclick","taskCompleted(todo)");
+            
+            const buttonContainer = document.createElement("div");
+            buttonContainer.setAttribute("id", "button-container");
+            buttonContainer.appendChild(btn);
+            buttonContainer.appendChild(btn2);
+        
             div.append(h4);
-            div.append(btn);
-            div.append(btn2);
+            div.append(buttonContainer); 
+            
             return div;
       }
+      
       function render() {
         const todocontainer= document.getElementById("todos");
         todocontainer.innerHTML = "";
